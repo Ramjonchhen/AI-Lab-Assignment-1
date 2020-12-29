@@ -1,0 +1,9 @@
+DOMRect {x: 715, y: 348, width: 400, height: 190, top: 348, …}
+bottom: 538
+height: 190
+left: 715
+right: 1115
+top: 348
+width: 400
+x: 715
+y: 348
