@@ -2,41 +2,7 @@ let delayTime = 4000;
 let turn = "red";
 
 const circle = document.querySelectorAll(".circle");
-
-const messageBox = document.getElementById("lights");
-
-//findint the x cordinates of the traffic lights
-// const trafficBox = document.querySelector(".container");
-// const rectTrafficBox = trafficBox.getBoundingClientRect();
-
-
-// // for the coordinates of the car while not moving
-// const car = document.querySelector("#car");
-// const rectCar = car.getBoundingClientRect();
-// console.log(rectCar);
-
-let carDom = document.querySelector("#car");
-
-let x = 0;
-
-function moveCar() {
-	x+=3;
-	if( x>=1500) {
-		x = -402;
-	}
-	carDom.style.left = x + "px";
-}
-
-setInterval(()=> {
-	if ( !(turn==="red"  && x ===702) ) {
-		moveCar();
-	} else{
-		messageBox.innerText = "Wait Until It's Green Light";
-	}
-},20);
-
-
-
+const message = document.querySelector('#message-info');
 
 function change(){
 	// console.log(turn);
@@ -44,28 +10,34 @@ function change(){
 		turn = "green";
 		circle[0].className = 'circle';
 		circle[1].classList.add('green');
-		messageBox.innerText = "Green Light";
+		message.textContent = 'Green Light!!!';
 	}else {
 		turn = "red";
 		circle[1].className = 'circle';
 		circle[0].classList.add('red');
-		messageBox.innerText = "Red Light";
+		message.textContent = 'Red Light!!!';
 	}
 	// setTimeout(change,delayTime)
 }
 
 setInterval(change,delayTime);
 
-// function findCarPosition(){
-// 	// finding the x and y cordinates of the car
-// const car = document.querySelector("#car");
-// const rectCar = car.getBoundingClientRect();
-// let xCor = Math.floor(rectCar.x);
+const car = document.querySelector("#car");
+let dis = 0;
 
-// if( (xCor>=719 && xCor<=815) && turn ==="red") {
-// 	alert("hello");
-// }
+function MoveCar(){
+	dis +=2;
 
-// }
-
-// setInterval(findCarPosition,5);
+	if(dis>=977) {
+		dis = -20;
+	}
+	car.style.left = dis + 'px';
+}
+setInterval(()=> {
+	if(!(dis===590 && turn==='red')) {
+		MoveCar();
+	}
+	else {
+		message.textContent = "Wait Until It's Green Light";
+	}
+},10);
