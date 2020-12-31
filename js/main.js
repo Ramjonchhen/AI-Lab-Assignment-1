@@ -22,19 +22,20 @@ function change(){
 
 setInterval(change,delayTime);
 
+
 const car = document.querySelector("#car");
 let dis = 0;
 
 function MoveCar(){
-	dis +=2;
+	dis +=4;
 
-	if(dis>=977) {
-		dis = -20;
+	if(dis>=1300) {
+		dis = -400;
 	}
 	car.style.left = dis + 'px';
 }
 setInterval(()=> {
-	if(!(dis===590 && turn==='red')) {
+	if(!(dis===588 && turn==='red')) {
 		MoveCar();
 	}
 	else {
